@@ -39,10 +39,11 @@ public class Pratica72 {
          Iterator<Map.Entry<String, Integer>> i = map1.entrySet().iterator(); 
 while(i.hasNext()){
     String key = i.next().getKey();
-    bw.write(key+", "+map1.get(key));
+    bw.write(key+","+map1.get(key));
     System.out.println("teoricamente escrevendo algo");
     bw.newLine();
     
 }
+bw.close();
     }
 }
