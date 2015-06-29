@@ -1,5 +1,8 @@
 
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -17,16 +20,29 @@ import utfpr.ct.dainf.if62c.pratica.ContadorPalavras;
  */
 public class Pratica72 {
     public static void main(String[] args) throws FileNotFoundException, IOException {
-         Scanner scanner = new Scanner(System.in);
+         
+        Scanner scanner = new Scanner(System.in);
          System.out.println("Digite o caminho:   ");
         String caminho = scanner.next();
+        File file = new File(caminho+".out");
+ 
+			// if file doesnt exists, then create it
+			if (!file.exists()) {
+                            
+				file.createNewFile();
+                               
+			}
+        BufferedWriter bw = new BufferedWriter(new FileWriter(caminho+".out"));
         ContadorPalavras c= new ContadorPalavras(caminho);
          HashMap<String, Integer> map1 =c.getPalavras();
          
          Iterator<Map.Entry<String, Integer>> i = map1.entrySet().iterator(); 
 while(i.hasNext()){
     String key = i.next().getKey();
-    System.out.println(key+", "+map1.get(key));
+    bw.write(key+", "+map1.get(key));
+    System.out.println("teoricamente escrevendo algo");
+    bw.newLine();
+    
 }
     }
 }

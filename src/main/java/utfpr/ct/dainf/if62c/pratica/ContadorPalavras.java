@@ -45,6 +45,7 @@ public class ContadorPalavras {
 
             }
         }
+        br.close();
         System.out.println("-#--#--#--#--#--#--#--#--#--#--#--#--#--#--#--#--#--#--#--#--#--#--#--#-");
         return map;
     }
