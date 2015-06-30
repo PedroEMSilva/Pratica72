@@ -19,7 +19,7 @@ import static javax.swing.UIManager.put;
  */
 public class ContadorPalavras {
 
-    BufferedReader br;
+     private BufferedReader br;
 
     public ContadorPalavras(String pathname) throws FileNotFoundException {
 

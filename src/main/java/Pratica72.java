@@ -4,8 +4,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import utfpr.ct.dainf.if62c.pratica.ContadorPalavras;
@@ -35,10 +39,18 @@ public class Pratica72 {
         BufferedWriter bw = new BufferedWriter(new FileWriter(caminho+".out"));
         ContadorPalavras c= new ContadorPalavras(caminho);
          HashMap<String, Integer> map1 =c.getPalavras();
-         
+         List<Integer> list = new ArrayList<Integer>(map1.values());
+         Collections.sort(list, new Comparator(){
+              @Override
+              public int compare(Object o1, Object o2) {    
+                 Integer c1 = (Integer) o1;    
+                 Integer c2 = (Integer) o2;    
+                 return c2-c1;
+               }  
+         });
          Iterator<Map.Entry<String, Integer>> i = map1.entrySet().iterator(); 
-while(i.hasNext()){
-    String key = i.next().getKey();
+for (Integer a:list){
+    String key = ;
     bw.write(key+","+map1.get(key));
     System.out.println("teoricamente escrevendo algo");
     bw.newLine();
